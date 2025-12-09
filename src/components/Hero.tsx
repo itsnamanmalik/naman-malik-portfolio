@@ -24,7 +24,7 @@ export function Hero({ data }: HeroProps) {
           <span className="badge badge-strong">
             <strong>6 years</strong> experience
           </span>
-          <span className="badge">CKAD Certified</span>
+          <span className="badge">CKAD Certified (Soon)</span>
         </div>
         <SocialRow social={data.social} />
       </div>
