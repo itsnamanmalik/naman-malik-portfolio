@@ -48,7 +48,7 @@ export function App() {
 
       <Hero data={portfolioData} />
 
-      <Section id="skills" title="Skills">
+      <Section id="skills" title="Skills" icon="🛠️">
         <div className="skills-grid">
           {Object.entries(portfolioData.skills).map(([label, items]) => (
             <SkillBlock key={label} label={label} items={items} />
@@ -56,15 +56,19 @@ export function App() {
         </div>
       </Section>
 
-      <Section id="experience" title="Experience" count={portfolioData.experience.length}>
-        <div className="cards">
-          {portfolioData.experience.map((item) => (
-            <ExperienceCard key={`${item.role}-${item.company}`} item={item} />
+      <Section id="experience" title="Experience" icon="📌" count={portfolioData.experience.length}>
+        <div className="timeline">
+          {portfolioData.experience.map((item, index) => (
+            <ExperienceCard
+              key={`${item.role}-${item.company}`}
+              item={item}
+              isLast={index === portfolioData.experience.length - 1}
+            />
           ))}
         </div>
       </Section>
 
-      <Section id="projects" title="Projects" count={portfolioData.projects.length}>
+      <Section id="projects" title="Projects" icon="🚀" count={portfolioData.projects.length}>
         <div className="cards">
           {portfolioData.projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
@@ -72,7 +76,7 @@ export function App() {
         </div>
       </Section>
 
-      <Section id="achievements" title="Achievements">
+      <Section id="achievements" title="Achievements" icon="🏅">
         <div className="cards">
           {portfolioData.achievements.map((achievement) => (
             <AchievementCard key={achievement.title} achievement={achievement} />
@@ -80,7 +84,7 @@ export function App() {
         </div>
       </Section>
 
-      <Section id="education" title="Education">
+      <Section id="education" title="Education" icon="🎓">
         <div className="cards">
           {portfolioData.education.map((education) => (
             <div className="card fade-up" key={education.degree}>

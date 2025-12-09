@@ -244,6 +244,17 @@ body.light .nav {
   color: var(--text);
 }
 
+.badge-strong {
+  border-color: var(--accent);
+  background: linear-gradient(120deg, rgba(125, 211, 252, 0.18), rgba(192, 132, 252, 0.14));
+  box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.25), 0 10px 30px rgba(125, 211, 252, 0.18);
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -361,13 +372,26 @@ body.light .nav {
 
 .section-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(22px, 3vw, 28px);
+  font-size: clamp(24px, 3.4vw, 32px);
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 10px;
   justify-content: center;
   animation: titlePop 0.7s ease both;
+}
+
+.section-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  font-size: 20px;
 }
 
 .pill {
@@ -383,6 +407,67 @@ body.light .nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 12px;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding-left: 26px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--stroke);
+  border-radius: 10px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item--last::after {
+  content: '';
+  position: absolute;
+  left: -16px;
+  bottom: -10px;
+  width: 28px;
+  height: 24px;
+  background: linear-gradient(180deg, transparent 0%, var(--bg) 80%);
+  pointer-events: none;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2px;
+  top: 18px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--panel-strong);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.12), 0 8px 24px rgba(0, 0, 0, 0.24);
+}
+
+.timeline-card {
+  margin-left: 6px;
+}
+
+.timeline-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.timeline-period {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .card {
