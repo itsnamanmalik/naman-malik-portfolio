@@ -12,9 +12,11 @@ export function ExperienceCard({ item, isLast }: ExperienceCardProps) {
       <div className="card timeline-card">
         <div className="timeline-row">
           <h3>{item.role}</h3>
+        </div>
+        <div className="experience-meta">
+          <div className="experience-company">{item.company}</div>
           <span className="timeline-period">{item.period}</span>
         </div>
-        <div className="meta">{item.company}</div>
         <div className="chip-row">
           {item.stack.map((tech) => (
             <span className="chip" key={tech}>

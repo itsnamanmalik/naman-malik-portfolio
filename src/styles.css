@@ -171,6 +171,36 @@ body.light .nav {
   color: var(--accent);
 }
 
+.scroll-top {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  z-index: 40;
+  opacity: 0.94;
+}
+
+.scroll-top:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+}
+
+.scroll-top:active {
+  transform: translateY(0);
+}
+
 .hero {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 16px;
@@ -460,14 +490,26 @@ body.light .nav {
 
 .timeline-row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 8px;
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.experience-company {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .timeline-period {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .card {
@@ -664,7 +706,8 @@ ul.bullets {
   }
 
   .nav {
-    position: static;
+    position: sticky;
+    top: 12px;
     flex-direction: row;
     align-items: center;
     gap: 8px;
@@ -711,7 +754,8 @@ ul.bullets {
     order: 4;
   }
 
-  .nav {
-    position: relative;
+  .scroll-top {
+    right: 14px;
+    bottom: 18px;
   }
 }

@@ -30,6 +30,9 @@ export function NavBar({
         ☰
       </button>
       <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <a href="#home" onClick={onCloseMenu}>
+          Home
+        </a>
         <a href="#skills" onClick={onCloseMenu}>
           Skills
         </a>

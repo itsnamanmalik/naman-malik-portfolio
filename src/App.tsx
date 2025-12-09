@@ -16,6 +16,7 @@ const THEME_KEY = 'nm-theme';
 export function App() {
   const [theme, setTheme] = useState<Theme>('dark');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const applyTheme = useCallback((value: Theme) => {
     setTheme(value);
@@ -31,11 +32,19 @@ export function App() {
     applyTheme(initial);
   }, [applyTheme]);
 
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 240);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleTheme = () => applyTheme(theme === 'dark' ? 'light' : 'dark');
   const closeMenu = () => setMenuOpen(false);
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <div className="page">
+    <div className="page" id="home">
       <NavBar
         name={portfolioData.name}
         subtitle="Backend · DevOps · LLM"
@@ -56,7 +65,7 @@ export function App() {
         </div>
       </Section>
 
-      <Section id="experience" title="Experience" icon="📌" count={portfolioData.experience.length}>
+      <Section id="experience" title="Experience" icon="💻" count={portfolioData.experience.length}>
         <div className="timeline">
           {portfolioData.experience.map((item, index) => (
             <ExperienceCard
@@ -97,6 +106,12 @@ export function App() {
       </Section>
 
       <ContactBlock contact={portfolioData.contact} social={portfolioData.social} location={portfolioData.location} />
+
+      {showScrollTop && (
+        <button className="scroll-top fade-up" onClick={scrollToTop} aria-label="Scroll to top">
+          ↑
+        </button>
+      )}
 
       <div className="footer fade-up">
          <span style={{ fontFamily: 'monospace', fontWeight: 700, marginRight: 4 }}>&lt;/&gt;</span> Developed by <strong>{portfolioData.name}</strong>
