@@ -126,6 +126,6 @@ export const portfolioData: PortfolioData = {
     { label: 'Email', url: 'mailto:namamalik06@gmail.com' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/namanmalik' },
     { label: 'GitHub', url: 'https://github.com/itsnamanmalik' },
-    { label: 'Resume', url: 'https://drive.google.com/file/d/1S1pD2ZBOmr7M-T8lmMuMLHV6fIdbxGED/view?usp=sharing' },
+    { label: 'Resume', url: 'https://drive.google.com/file/d/1pwMOggNHdhWb3mDLhVZg7aY6Txh5aEtj/view?usp=sharing' },
   ],
 };
