@@ -45,9 +45,6 @@ export function NavBar({
         <a href="#achievements" onClick={onCloseMenu}>
           Achievements
         </a>
-        <a href="#education" onClick={onCloseMenu}>
-          Education
-        </a>
         <a href="#contact" onClick={onCloseMenu}>
           Contact
         </a>
