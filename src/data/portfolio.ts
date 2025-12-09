@@ -64,7 +64,7 @@ export const portfolioData: PortfolioData = {
       title: 'Front Store Utilities',
       org: 'EXL Services (CVS Health)',
       description: 'Internal Python package for repetitive and privileged tasks used by data teams; hosted on Nexus.',
-      stack: ['Python', 'Snowflake', 'Kubernetes', 'Cosmos', 'Azure KeyVault', 'Pandas'],
+      stack: ['Python', 'Snowflake', 'Kubernetes', 'Azure KeyVault', 'Pandas'],
     },
     {
       title: 'KFM247 (CMMS)',
@@ -126,6 +126,6 @@ export const portfolioData: PortfolioData = {
     { label: 'Email', url: 'mailto:namamalik06@gmail.com' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/namanmalik' },
     { label: 'GitHub', url: 'https://github.com/itsnamanmalik' },
-    { label: 'Resume', url: 'https://drive.google.com/file/d/1pwMOggNHdhWb3mDLhVZg7aY6Txh5aEtj/view?usp=sharing' },
+    { label: 'Resume', url: 'https://drive.google.com/file/d/1hPeWP1MIN2uVEupXt-JvYItCFyX4ETbs/view?usp=sharing' },
   ],
 };
