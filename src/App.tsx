@@ -12,11 +12,14 @@ import { Theme } from './types';
 import './styles.css';
 
 const THEME_KEY = 'nm-theme';
+const SECTION_IDS = ['home', 'skills', 'experience', 'projects', 'achievements', 'education'] as const;
+type SectionId = (typeof SECTION_IDS)[number];
 
 export function App() {
   const [theme, setTheme] = useState<Theme>('dark');
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeSection, setActiveSection] = useState<SectionId>('home');
 
   const applyTheme = useCallback((value: Theme) => {
     setTheme(value);
@@ -39,17 +42,45 @@ export function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (!visible.length) {
+          return;
+        }
+
+        const topEntry = visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const { id } = topEntry.target;
+        if (SECTION_IDS.includes(id as SectionId)) {
+          setActiveSection(id as SectionId);
+        }
+      },
+      { threshold: Array.from({ length: 101 }, (_, i) => i / 100), rootMargin: '-40% 0px -40% 0px' },
+    );
+
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        observer.observe(el);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const toggleTheme = () => applyTheme(theme === 'dark' ? 'light' : 'dark');
   const closeMenu = () => setMenuOpen(false);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <div className="page" id="home">
+    <div className="page">
       <NavBar
         name={portfolioData.name}
         subtitle="Backend · DevOps · LLM"
         theme={theme}
         menuOpen={menuOpen}
+        activeSection={activeSection}
         onToggleMenu={() => setMenuOpen((open) => !open)}
         onCloseMenu={closeMenu}
         onToggleTheme={toggleTheme}
@@ -105,7 +136,11 @@ export function App() {
         </div>
       </Section>
 
-      <ContactBlock contact={portfolioData.contact} social={portfolioData.social} location={portfolioData.location} />
+      <Section id="contact" title="Contact" icon="📞">
+        <div className="cards">
+          <ContactBlock contact={portfolioData.contact} social={portfolioData.social} location={portfolioData.location} />
+        </div>
+      </Section>
 
       {showScrollTop && (
         <button className="scroll-top fade-up" onClick={scrollToTop} aria-label="Scroll to top">

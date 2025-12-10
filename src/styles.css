@@ -128,6 +128,14 @@ body.light .nav {
   text-align: center;
 }
 
+.nav-links a.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--panel);
+  font-weight: 700;
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
 .nav-links a:hover {
   border-color: var(--accent);
   color: var(--accent);
@@ -152,8 +160,9 @@ body.light .nav {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 10px 14px;
-  border-radius: 10px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  min-width: 42px;
   border: 1px solid var(--stroke);
   background: var(--panel);
   color: var(--text);

@@ -9,7 +9,7 @@ export function Hero({ data }: HeroProps) {
   const summaryHtml = data.summary.replace(/6 years/gi, '<span class="highlight">6 years</span>');
 
   return (
-    <div className="hero fade-up">
+    <div id="home" className="hero fade-up">
       <div className="hero-card hero-card--center">
         <div className="hero-avatar">
           <img className="profile-img profile-photo" src={data.avatar} alt={data.name} />
