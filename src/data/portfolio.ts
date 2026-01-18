@@ -109,8 +109,8 @@ export const portfolioData: PortfolioData = {
     Cloud: ['AWS (S3, RDS, SNS, EC2, ECS, Lambda, API Gateway, CloudWatch)', 'Azure', 'DigitalOcean'],
     DevOps: ['Docker', 'Kubernetes', 'Jenkins', 'GitHub Actions', 'Bitbucket'],
     Integrations: ['Git', 'Jira', 'Twilio', 'Razorpay'],
-    'AI / LLM': ['LLaMA', 'OpenAI', 'RAG', 'MCP', 'GitHub Copilot'],
-    Auth: ['OAuth2', 'JWT'],
+    'AI / LLM': ['LangChain', 'LangGraph', 'LLaMA', 'OpenAI', 'RAG', 'MCP', 'GitHub Copilot'],
+    Auth: ['OAuth2', 'JWT', 'RBAC'],
     Leadership: ['Team Leadership', 'Code Reviews'],
   },
   achievements: [
