@@ -15,7 +15,7 @@ export const portfolioData: PortfolioData = {
   },
   experience: [
     {
-      role: 'Sr. Platform Engineer',
+      role: 'Sr. Software Engineer',
       company: 'EXL Services (CVS Health)',
       period: '09/2024 – Present · Remote',
       stack: ['Python', 'Snowflake', 'Docker', 'Kubernetes', 'Kubeflow', 'ACR'],
@@ -23,6 +23,7 @@ export const portfolioData: PortfolioData = {
         'Designed centralized base Docker images with security hardening, cutting platform CVEs by 40%.',
         'Operate Kubernetes and Docker pipelines for consistent delivery across teams.',
         'Platform partner for Fortune 10 healthcare org, enabling data science workloads at scale.',
+        'Currently working on a project to create Planogram for CVS Health retail stores.',
       ],
     },
     {
